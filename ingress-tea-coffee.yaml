@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: test
+  annotations:
+    ingress.kubernetes.io/force-ssl-redirect: "false"
+    ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /tea
+        backend:
+          serviceName: tea-svc
+          servicePort: 808
+      - path: /coffee
+        backend:
+          serviceName: coffee-svc
+          servicePort: 806
+      - path: /spa
+        backend:
+          serviceName: sparkdingtest-webui 
+          servicePort: 8080
